@@ -2,7 +2,6 @@
 
 
 import { useEffect, useState } from "react";
-import './dashboard.css';
 export default function ZeusAlgoDashboard() {
   const [signals, setSignals] = useState([
     { type: "buy", symbol: "BTC/USDT", price: "$63,200", tf: "1h" },
