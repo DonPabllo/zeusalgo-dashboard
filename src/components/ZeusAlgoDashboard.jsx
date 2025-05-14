@@ -1,20 +1,30 @@
+import { useEffect, useState } from "react";
+import './dashboard.css';
+
 export default function ZeusAlgoDashboard() {
+  const [signals, setSignals] = useState([
+    { type: "buy", symbol: "BTC/USDT", price: "$63,200", tf: "1h" },
+    { type: "sell", symbol: "ETH/USDT", price: "$3,120", tf: "15m" },
+    { type: "buy", symbol: "SOL/USDT", price: "$142", tf: "5m" },
+  ]);
+
   return (
-    <div className="text-white bg-zinc-900 p-6 rounded-xl shadow-xl">
-      <h1 className="text-2xl font-bold mb-4">📊 ZeusAlgo Dashboard</h1>
-      <div className="grid grid-cols-2 gap-4 text-sm">
-        <div className="bg-zinc-800 p-4 rounded-lg">
-          <p className="text-gray-400">Semnale Buy</p>
-          <p className="text-green-400 font-semibold text-xl">12</p>
-        </div>
-        <div className="bg-zinc-800 p-4 rounded-lg">
-          <p className="text-gray-400">Semnale Sell</p>
-          <p className="text-red-400 font-semibold text-xl">7</p>
-        </div>
-        <div className="bg-zinc-800 p-4 rounded-lg col-span-2">
-          <p className="text-gray-400">Ultimul semnal</p>
-          <p className="font-medium">ETH/USDT - BUY @ $2590 - TF: 3h</p>
-        </div>
+    <div className="bg-dark min-h-screen p-8 font-uncial text-white">
+      <h1 className="text-4xl text-center mb-10">🧙‍♀️ ZeusAlgo Dashboard</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {signals.map((signal, index) => (
+          <div
+            key={index}
+            className={`signal-card ${
+              signal.type === "buy" ? "border-glow-green" : "border-glow-red"
+            }`}
+          >
+            <p className="text-sm text-gray-400">{signal.type.toUpperCase()}</p>
+            <p className="text-xl font-bold">{signal.symbol}</p>
+            <p className="text-md">{signal.price}</p>
+            <p className="text-xs italic">TF: {signal.tf}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
