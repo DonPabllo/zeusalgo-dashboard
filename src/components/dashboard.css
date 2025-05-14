@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+.font-uncial {
+  font-family: 'Uncial Antiqua', cursive;
+}
+
+.bg-dark {
+  background-color: #0f0f0f;
+}
+
+.signal-card {
+  padding: 1.5rem;
+  border: 2px solid;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: pulse-signal 3s infinite alternate;
+}
+
+.signal-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #39ff14;
+}
+
+.border-glow-green {
+  border-color: #39ff14;
+  box-shadow: 0 0 10px #39ff14;
+}
+
+.border-glow-red {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 10px #ff3b3b;
+}
+
+@keyframes pulse-signal {
+  0% { box-shadow: 0 0 8px transparent; }
+  100% { box-shadow: 0 0 12px rgba(57, 255, 20, 0.5); }
+}
